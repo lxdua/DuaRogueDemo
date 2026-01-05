@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://b7x8367y5tl7p"]
+
+[ext_resource type="Texture2D" uid="uid://bk2lp6wrnc1nh" path="res://Art/BG_ArkOutskirts.png" id="1_uxx7b"]
+[ext_resource type="Texture2D" uid="uid://dsa2fw8cqeiif" path="res://Art/1_Position_icon_Deal #57668.png" id="3_0tscf"]
+[ext_resource type="Texture2D" uid="uid://6s37akjrbwkx" path="res://Art/camp_sd_huz1.png" id="4_37t5i"]
+
+[sub_resource type="Gradient" id="Gradient_wdk7h"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.31703427, 0.21476394, 0.19175279, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_88nlh"]
+gradient = SubResource("Gradient_wdk7h")
+width = 100
+height = 10
+
+[sub_resource type="Gradient" id="Gradient_g8jvt"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.78431374, 0.31764707, 0.11764706, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h2bob"]
+gradient = SubResource("Gradient_g8jvt")
+width = 100
+height = 10
+
+[sub_resource type="Gradient" id="Gradient_uxx7b"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.21176471, 0.1764706, 0.11372549, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_looaw"]
+gradient = SubResource("Gradient_uxx7b")
+width = 80
+height = 10
+
+[sub_resource type="Gradient" id="Gradient_0tscf"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.72313756, 0.7204939, 0.72115046, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_37t5i"]
+gradient = SubResource("Gradient_0tscf")
+width = 80
+height = 10
+
+[node name="FightScene" type="Node2D"]
+
+[node name="BG" type="Sprite2D" parent="."]
+texture = ExtResource("1_uxx7b")
+centered = false
+
+[node name="RoleNode" type="Node2D" parent="."]
+position = Vector2(602, 801)
+
+[node name="Sprite2D" type="Sprite2D" parent="RoleNode"]
+position = Vector2(0, -74)
+texture = ExtResource("4_37t5i")
+
+[node name="StatusBar" type="HBoxContainer" parent="RoleNode"]
+offset_left = -64.0
+offset_right = 65.0
+offset_bottom = 25.0
+theme_override_constants/separation = 4
+
+[node name="Icon" type="TextureRect" parent="RoleNode/StatusBar"]
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+texture = ExtResource("3_0tscf")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RoleNode/StatusBar"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="RoleNode/StatusBar/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 0.385
+texture_under = SubResource("GradientTexture2D_88nlh")
+texture_progress = SubResource("GradientTexture2D_h2bob")
+
+[node name="ArmorBar" type="TextureProgressBar" parent="RoleNode/StatusBar/VBoxContainer"]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+max_value = 1.0
+step = 0.0
+value = 1.0
+texture_under = SubResource("GradientTexture2D_looaw")
+texture_progress = SubResource("GradientTexture2D_37t5i")
