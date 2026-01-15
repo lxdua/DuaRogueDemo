@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://brkb2nyv0uuaf"]
+
+[ext_resource type="Script" uid="uid://byv3kw8qxtjwn" path="res://Scene/Fight/spell_ui.gd" id="1_bdmnl"]
+
+[node name="SpellUI" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = -1
+anchor_right = 0.104
+anchor_bottom = 0.185
+offset_right = -199.68001
+offset_bottom = -199.8
+script = ExtResource("1_bdmnl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "名字"
+horizontal_alignment = 1
+
+[node name="DescLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "描述"
+
+[node name="SpellUIButton" type="Button" parent="."]
+layout_mode = 2
+
+[connection signal="pressed" from="SpellUIButton" to="." method="_on_spell_ui_button_pressed"]

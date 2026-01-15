@@ -11,3 +11,5 @@ var surviving_amount: int = 1
 
 var cur_caster: Role
 var cur_victim_arr: Array[Role]
+
+var selected_spell: Spell
